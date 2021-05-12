@@ -1,6 +1,6 @@
 import os
 
-MISS_AMERICANA_FRAMES_FOLDER = 'C:\\Users\\franc\\OneDrive\\Pictures\\MissAmericana'
+MISS_AMERICANA_FRAMES_FOLDER = 'C:\\Users\\franc\\OneDrive\\Pictures\\MissAmericana'  # noqa
 CWD = os.getcwd()
 PROGRESS_FOLDER = os.path.join(CWD, 'saved_progress')
 RECORDED_FRAMES_FILE = os.path.join(PROGRESS_FOLDER, 'recorded_frames.txt')
