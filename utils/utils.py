@@ -4,8 +4,11 @@ import shutil
 from collections import deque
 
 # CONSTANTS
-MISS_AMERICANA_FRAMES_FOLDER = 'C:\\Users\\franc\\OneDrive\\Pictures\\MissAmericana'  # noqa
+MISS_AMERICANA_FRAMES_FOLDER = 'C:\\Users\\Wetpa\\Desktop\\a\\capture'  # noqa
 TWEETED_FRAMES_FOLDER = 'C:\\Users\\franc\\OneDrive\\Pictures\\MissAmericanaTweetedFrames'  # noqa
+
+
+# MISS_AMERICANA_FRAMES_FOLDER = 'D:\\Captures'  # noqa
 
 CWD = os.getcwd()
 PROGRESS_FOLDER = os.path.join(CWD, 'saved_progress')
@@ -72,4 +75,5 @@ def get_last_recorded_tweet():
 
 if __name__ == '__main__':
     frames = list_all_frames()
-    
+    for frame in frames:
+        print(frame)

@@ -1,11 +1,13 @@
 import os
-
+from utils.utils import MISS_AMERICANA_FRAMES_FOLDER, list_all_frames
 import tweepy
+
 # load environmental variables
 from dotenv import load_dotenv
 from utils import utils
 
 load_dotenv()
+
 
 # API KEYS
 consumer_key = os.getenv('CONSUMER_KEY')
@@ -30,17 +32,16 @@ def main():
     # WHILE TRUE:
     frame_list = utils.list_all_frames()
 
-    while True:
-        for frame in frame_list:
+    for frame in frame_list:
 
-            api.update_status()
+        api.update_status(f"Miss Americana - Frame {frame} out of {frame_list[-1]}", api.media_upload())
 
-            # desired sleep time
+        # desired sleep time
 
-            # mb add this to line 34
+        # mb add this to line 34
 
-            # when tweeted dump the frame into another folder
-            utils.record_tweeted_frames(frame_list.popleft())
+        # when tweeted dump the frame into another folder
+        utils.record_tweeted_frames(frame_list.popleft())
 
 
     # API.UPDATE_STATUS()
@@ -51,3 +52,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+x = list_all_frames(MISS_AMERICANA_FRAMES_FOLDER)
+i = 0
+print(x)
+# while i <= len(x):
+    # api.update_status("Miss Americana - Frame XXXXX of XXXXX", api.media_upload())
+
