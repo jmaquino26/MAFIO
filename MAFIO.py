@@ -1,4 +1,5 @@
 import os
+import time
 from utils.utils import MISS_AMERICANA_FRAMES_FOLDER, list_all_frames
 import tweepy
 
@@ -27,35 +28,27 @@ def main():
 
     # THIS IS WHERE THE WHILE LOOP IS GONNA RUN!
 
-    # implement a queue
-
     # WHILE TRUE:
     frame_list = utils.list_all_frames()
 
-    for frame in frame_list:
+    frame_num = 0
 
-        api.update_status(f"Miss Americana - Frame {frame} out of {frame_list[-1]}", api.media_upload())
+    while frame_num == len(frame_list):
+        frame = frame_list.popleft()
 
-        # desired sleep time
-
-        # mb add this to line 34
+        api.update_status(f"Miss Americana - Frame {frame[:-4]} "
+                          f"out of {frame_list[-1][:-4]}",
+                          # upload the image
+                          api.media_upload(utils.get_frame(frame)))
 
         # when tweeted dump the frame into another folder
-        utils.record_tweeted_frames(frame_list.popleft())
+        utils.record_tweeted_frames(frame)
+
+        # desired sleep time
+        time.sleep(900)
 
 
-    # API.UPDATE_STATUS()
-
-    # THEN 
-    pass
 
 
 if __name__ == '__main__':
     main()
-
-x = list_all_frames(MISS_AMERICANA_FRAMES_FOLDER)
-i = 0
-print(x)
-# while i <= len(x):
-    # api.update_status("Miss Americana - Frame XXXXX of XXXXX", api.media_upload())
-

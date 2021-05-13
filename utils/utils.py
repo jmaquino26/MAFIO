@@ -15,11 +15,6 @@ PROGRESS_FOLDER = os.path.join(CWD, 'saved_progress')
 RECORDED_FRAMES_FILE = os.path.join(PROGRESS_FOLDER, 'recorded_frames.txt')
 
 
-def list_all_frames() -> deque:
-    """List all photos inside the path"""
-    return deque(os.listdir(MISS_AMERICANA_FRAMES_FOLDER))
-
-
 def _ensure_folder():
     """Ensure folder and files are created"""
     if not os.path.exists(PROGRESS_FOLDER):
@@ -29,20 +24,18 @@ def _ensure_folder():
         os.mkdir(TWEETED_FRAMES_FOLDER)
 
 
+def list_all_frames() -> deque:
+    """List all photos inside the path"""
+    return deque(os.listdir(MISS_AMERICANA_FRAMES_FOLDER))
+
+
 def record_tweeted_frames(frame_number) -> None:
 
     _ensure_folder()
 
     with open(RECORDED_FRAMES_FILE, 'a') as f:
-        if isinstance(frame_number, list):
-
-            for frame in frame_number:  # (s)
-                num, _ = os.path.splitext(frame)
-                f.write(str(num))
-                f.write('\n')
-        else:
-            f.write(str(frame_number))
-            f.write('\n')
+        f.write(str(frame_number))
+        f.write('\n')
 
     # moves the frame to other folder when finished tweeting
     # so it will not load/list the frames again from 0000
@@ -50,6 +43,11 @@ def record_tweeted_frames(frame_number) -> None:
                 f'{TWEETED_FRAMES_FOLDER}\\{frame_number}')
 
 
+def get_frame(frame):
+    return os.path.join(MISS_AMERICANA_FRAMES_FOLDER, frame)
+
+
+# unused functions
 def recorded_tweet_list() -> list:
     """Returns the list of frame numbers that's already been tweeted
     NOTE: the last index is always an empty string ('')
@@ -74,6 +72,4 @@ def get_last_recorded_tweet():
 
 
 if __name__ == '__main__':
-    frames = list_all_frames()
-    for frame in frames:
-        print(frame)
+    pass
