@@ -43,7 +43,7 @@ def main():
         utils.record_tweeted_frames(frame)
 
         # desired sleep time
-        time.sleep(15)
+        time.sleep(300)
 
 
 if __name__ == '__main__':
