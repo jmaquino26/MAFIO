@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 tweepy = "*"
 python-dotenv = "*"
+natsort = "*"
 
 [dev-packages]
 flake8 = "*"

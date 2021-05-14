@@ -1,6 +1,7 @@
 import os
 import shutil
 
+from natsort import natsorted
 from collections import deque
 
 # CONSTANTS
@@ -26,7 +27,7 @@ def _ensure_folder():
 
 def list_all_frames() -> deque:
     """List all photos inside the path"""
-    return deque(os.listdir(MISS_AMERICANA_FRAMES_FOLDER))
+    return natsorted(deque(os.listdir(MISS_AMERICANA_FRAMES_FOLDER)))
 
 
 def record_tweeted_frames(frame_number) -> None:
