@@ -27,7 +27,7 @@ def _ensure_folder():
 
 def list_all_frames() -> deque:
     """List all photos inside the path"""
-    return natsorted(deque(os.listdir(MISS_AMERICANA_FRAMES_FOLDER)))
+    return deque(natsorted(os.listdir(MISS_AMERICANA_FRAMES_FOLDER)))
 
 
 def record_tweeted_frames(frame_number) -> None:
