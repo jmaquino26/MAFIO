@@ -4,8 +4,8 @@ import shutil
 from collections import deque
 
 # CONSTANTS
-MISS_AMERICANA_FRAMES_FOLDER = 'C:\\Users\\Wetpa\\Desktop\\a\\capture'  # noqa
-TWEETED_FRAMES_FOLDER = 'C:\\Users\\franc\\OneDrive\\Pictures\\MissAmericanaTweetedFrames'  # noqa
+MISS_AMERICANA_FRAMES_FOLDER = 'C:\\Users\\Wetpa\\Desktop\\a\\capture2'  # noqa
+TWEETED_FRAMES_FOLDER = 'C:\\Users\\Wetpa\\Desktop\\a\\twitterFolder'  # noqa
 
 
 # MISS_AMERICANA_FRAMES_FOLDER = 'D:\\Captures'  # noqa

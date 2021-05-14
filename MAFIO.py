@@ -1,6 +1,5 @@
 import os
 import time
-from utils.utils import MISS_AMERICANA_FRAMES_FOLDER, list_all_frames
 import tweepy
 
 # load environmental variables
@@ -32,23 +31,21 @@ def main():
     frame_list = utils.list_all_frames()
 
     frame_num = 0
-
-    while frame_num == len(frame_list):
+    while frame_num <= len(frame_list):
         frame = frame_list.popleft()
+        media = api.media_upload(utils.get_frame(frame))
 
-        api.update_status(f"Miss Americana - Frame {frame[:-4]} "
+        api.update_status(status=f"Miss Americana - Frame {frame[:-4]} "
                           f"out of {frame_list[-1][:-4]}",
-                          # upload the image
-                          api.media_upload(utils.get_frame(frame)))
+                          media_ids=[media.media_id])
 
         # when tweeted dump the frame into another folder
         utils.record_tweeted_frames(frame)
 
         # desired sleep time
-        time.sleep(900)
-
-
+        time.sleep(15)
 
 
 if __name__ == '__main__':
     main()
+
